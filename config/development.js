@@ -2,6 +2,6 @@ module.exports = {
     logLevel: 'debug',
     baseHref: "/",
     api: {
-        baseUrl: "https://httpbin.org",
+        baseUrl: "http://127.0.0.1:8000",
     },
 }

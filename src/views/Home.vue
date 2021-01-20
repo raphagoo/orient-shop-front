@@ -7,7 +7,7 @@
 </template>
 
 <script>
-
+import { mapState, mapActions } from 'vuex'
 import Header from "../includes/Header.vue";
 import Footer from "../includes/Footer.vue";
 export default {
@@ -15,6 +15,19 @@ export default {
     components: {
         Footer,
         Header
+    },
+    computed: {
+        ...mapState({
+            products: state => state.products
+        })
+    },
+    created() {
+        this.getAllProducts()
+    },
+    methods: {
+        ...mapActions('product', {
+            getAllProducts: 'getAllProducts'
+        })
     }
 }
 </script>
