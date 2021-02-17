@@ -66,6 +66,10 @@ module.exports = {
                     'css-loader',
                 ],
             },
+            {
+                test: /\.(png|jpe?g|gif)$/i,
+                use: 'file-loader?name=[name].[ext]',
+            },
             // this will apply to both plain `.scss` files
             // AND `<style lang="scss">` blocks in `.vue` files
             {

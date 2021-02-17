@@ -1,41 +1,99 @@
 <template>
     <div class="md-content footerContainer">
-        <div class="md-layout md-alignment-top-center md-gutter">
-            <div class="md-layout-item md-size-20 md-title">Information</div>
-            <div class="md-layout-item md-size-20 md-title">Besoin d'aide</div>
-            <div class="md-layout-item md-size-20 md-title">Mon compte</div>
-            <div class="md-layout-item md-size-20 md-title">Suivez nous</div>
-        </div>
-        <div class="md-layout md-alignment-top-center md-gutter">
-            <div class="md-layout-item md-size-20">A propos de nous</div>
-            <div class="md-layout-item md-size-20">Contactez nous</div>
-            <div class="md-layout-item md-size-20">Mes informations</div>
-            <div class="md-layout-item md-size-20"><md-icon class="text-white">facebook</md-icon> orient-shop</div>
-        </div>
-        <div class="md-layout md-alignment-top-center md-gutter">
-            <div class="md-layout-item md-size-20">Principes de confidentialité</div>
-            <div class="md-layout-item md-size-20">Mode de paiement</div>
-            <div class="md-layout-item md-size-20">Suivi de commande</div>
-            <div class="md-layout-item md-size-20"><md-icon class="text-white">monochrome_photos</md-icon> orient-shop</div>
-        </div>
-        <div class="md-layout md-alignment-top-center md-gutter md-size-20">
-            <div class="md-layout-item md-size-20">Conditions générales de vente</div>
-            <div class="md-layout-item md-size-20">Livraison</div>
-            <div class="md-layout-item md-size-20">Mon panier</div>
-            <div class="md-layout-item md-size-20"></div>
-        </div>
-        <div class="md-layout md-alignment-top-center md-gutter md-size-20">
-            <div class="md-layout-item md-size-20">Nos boutiques</div>
-            <div class="md-layout-item md-size-20">Echange et retour</div>
-            <div class="md-layout-item md-size-20">Mes favoris</div>
-            <div class="md-layout-item md-size-20"></div>
-        </div>
-        <div class="md-layout logoLayout md-alignment-center-center">
-            <div class="md-layout-item md-title text-center">Logo Orient shop</div>
+        <div class="topFooter md-layout md-alignment-top-center md-gutter">
+            <div class="md-layout-item md-size-25">
+                <img class="logoFooter" src="src/assets/Logo-blanc.svg" />
+            </div>
+            <div class="md-layout-item md-size-25">
+                <div class="md-layout">
+                    <div class="md-layout-item md-size-5">
+                        <md-icon style="color: white;">remove</md-icon>
+                    </div>
+                    <div class="md-layout-item md-title">
+                        &nbsp;Informations
+                    </div>
+                </div>
+                <div class="md-layout">
+                    <div class="md-layout-item md-size-5">
 
+                    </div>
+                    <div class="md-layout-item">
+                        A propos de nous
+                    </div>
+                </div>
+                <div class="md-layout">
+                    <div class="md-layout-item md-size-5">
+
+                    </div>
+                    <div class="md-layout-item">
+                        Nous contacter
+                    </div>
+                </div>
+                <div class="md-layout">
+                    <div class="md-layout-item md-size-5">
+
+                    </div>
+                    <div class="md-layout-item">
+                        Livraison
+                    </div>
+                </div>
+                <div class="md-layout">
+                    <div class="md-layout-item md-size-5">
+
+                    </div>
+                    <div class="md-layout-item">
+                        Politique de confidentialité
+                    </div>
+                </div>
+                <div class="md-layout">
+                    <div class="md-layout-item md-size-5">
+
+                    </div>
+                    <div class="md-layout-item">
+                        Conditions générales de vente
+                    </div>
+                </div>
+                <div class="md-layout">
+                    <div class="md-layout-item md-size-5">
+
+                    </div>
+                    <div class="md-layout-item">
+                        Mentions légales
+                    </div>
+                </div>
+                <div class="md-layout">
+                    <div class="md-layout-item md-size-5">
+
+                    </div>
+                    <div class="md-layout-item">
+                        Paiement
+                    </div>
+                </div>
+            </div>
+            <div class="md-layout-item md-size-25">
+                <div class="md-layout">
+                    <div class="md-layout-item md-size-5">
+                        <md-icon style="color: white;">remove</md-icon>
+                    </div>
+                    <div class="md-layout-item md-title">
+                        &nbsp;Nous retrouver sur :
+                    </div>
+                </div>
+                <div class="md-layout">
+                    <div class="md-layout-item md-size-5">
+
+                    </div>
+                    <div class="md-layout-item md-size-10">
+                        <md-icon style="color: white;">facebook</md-icon>
+                    </div>
+                    <div class="md-layout-item md-size-10">
+                        <md-icon style="color: white;">instagram</md-icon>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="md-layout copyrightLayout md-alignment-center-center">
-            <div class="md-layout-item text-center"><md-icon class="text-white">copyright</md-icon>2020 orientshop - Tous droits réservés</div>
+            <div class="md-layout-item text-center"><md-icon class="text-white">copyright</md-icon> Orient'shop - Tous droits réservés - 2021</div>
         </div>
     </div>
 </template>
@@ -48,10 +106,27 @@ export default {
 
 <style scoped lang="scss">
 .footerContainer{
+    padding-top: 10%;
     background-color: black;
     color: white;
-    .md-layout{
-        padding: 10px 0 10px 0;
+    .topFooter{
+        padding-bottom: 5%;
+        .md-layout{
+            padding: 5px 0 5px 0;
+            .text-white{
+                color: white !important;
+            }
+            .text-center{
+                text-align: center;
+            }
+        }
+    }
+    .logoFooter{
+        max-width:250px;
+        max-height: 200px;
+    }
+    .copyrightLayout{
+        padding: 15px 0 50px 0;
         .text-white{
             color: white !important;
         }
@@ -59,11 +134,8 @@ export default {
             text-align: center;
         }
     }
-    .logoLayout{
-        padding: 50px 0 15px 0;
-    }
-    .copyrightLayout{
-        padding: 15px 0 50px 0;
+    .md-title{
+        font-family: Fondamento, serif;
     }
 }
 </style>

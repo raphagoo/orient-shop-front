@@ -1,0 +1,247 @@
+<template>
+    <div class="container">
+        <Header></Header>
+        <div class="md-layout">
+            <div class="md-layout-item">
+                <div class="md-layout">
+                    <div class="md-layout-item">
+                        <div class="md-layout md-alignment-center">
+                            <div class="md-layout-item md-size-75">
+                                <img class="primaryPic" src="src/assets/caftan-marocain.jpg"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md-layout-item">
+                        <div class="md-layout">
+                            <div class="md-layout-item md-size-50">
+                                <img class="secondaryPic" src="src/assets/caftan-marocain.jpg"/>
+                            </div>
+                        </div>
+                        <div class="md-layout">
+                            <div class="md-layout-item md-size-50">
+                                <img class="secondaryPic" src="src/assets/caftan-marocain.jpg"/>
+                            </div>
+                        </div>
+                        <div class="md-layout">
+                            <div class="md-layout-item md-size-50">
+                                <img class="secondaryPic" src="src/assets/caftan-marocain.jpg"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="md-layout-item">
+                <div class="md-layout">
+                    <div class="md-layout-item primaryText md-headline md-size-75">Caftan Or</div>
+                    <div class="md-layout-item primaryText md-headline md-size-25">80.00€</div>
+                </div>
+                <div class="md-layout">
+                    <div class="md-layout-item">
+                        <md-icon>favorite_border</md-icon>
+                    </div>
+                </div>
+                <div class="md-layout">
+                    <div class="md-layout-item">
+                        <md-field>
+                            <label for="height">Taille</label>
+                            <md-select v-model="height" name="height" id="height">
+                                <md-option value="s">S</md-option>
+                                <md-option value="m">M</md-option>
+                                <md-option value="l">L</md-option>
+                            </md-select>
+                        </md-field>
+                    </div>
+                </div>
+                <div class="md-layout">
+                    <div class="md-layout-item">
+                        <md-field>
+                            <label>Number</label>
+                            <md-input v-model="number" min="1" max="5" type="number"></md-input>
+                        </md-field>
+                    </div>
+                </div>
+                <div class="md-layout">
+                    <div class="md-layout-item">
+                        <md-field>
+                            <label for="color">Couleur</label>
+                            <md-select v-model="color" name="color" id="color">
+                                <md-option value="brown">Marron</md-option>
+                                <md-option value="cyan">Cyan</md-option>
+                                <md-option value="red">Red</md-option>
+                            </md-select>
+                        </md-field>
+                    </div>
+                </div>
+                <div class="md-layout">
+                    <div class="md-layout-item">
+                       Description :
+                    </div>
+                </div>
+                <div class="md-layout">
+                    <div class="md-layout-item">
+                       Lorem Ipsum
+                    </div>
+                </div>
+                <div class="md-layout">
+                    <div class="md-layout-item md-size-35">
+                        <md-button class="md-raised md-primary"><md-icon style="color: white;">add</md-icon> Ajouter a mon panier</md-button>
+                    </div>
+                    <div class="md-layout-item md-size-35">
+                        <md-button class="buttonAvis"><md-icon>speaker_notes</md-icon> Voir les avis</md-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="md-layout similarProducts">
+            <div class="md-layout-item">
+                <div class="md-layout">
+                    <div class="md-layout-item md-title">
+                        Produits similaires
+                    </div>
+                </div>
+                <div class="md-layout productImages md-alignment-center-center">
+                    <div class="md-layout-item">
+                        <div class="md-layout">
+                            <div class="md-layout-item">
+                                <img src="src/assets/robe-blanc.jpg" />
+                            </div>
+                        </div>
+                        <div class="md-layout">
+                            <div class="md-layout-item">
+                                <span>Caftan cuivre</span>
+                            </div>
+                        </div>
+                        <div class="md-layout">
+                            <div class="md-layout-item">
+                                1500.00€
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md-layout-item">
+                        <div class="md-layout">
+                            <div class="md-layout-item">
+                                <img src="src/assets/robe-bleu-claire.jpg" />
+                            </div>
+                        </div>
+                        <div class="md-layout">
+                            <div class="md-layout-item">
+                                <span>Caftan bleu clair</span>
+                            </div>
+                        </div>
+                        <div class="md-layout">
+                            <div class="md-layout-item">
+                                1500.00€
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md-layout-item">
+                        <div class="md-layout">
+                            <div class="md-layout-item">
+                                <img src="src/assets/robe-bleu-claire.jpg" />
+                            </div>
+                        </div>
+                        <div class="md-layout">
+                            <div class="md-layout-item">
+                                <span>Caftan bleu clair</span>
+                            </div>
+                        </div>
+                        <div class="md-layout">
+                            <div class="md-layout-item">
+                                1500.00€
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md-layout-item">
+                        <div class="md-layout">
+                            <div class="md-layout-item">
+                                <img src="src/assets/robe-bleu-claire.jpg" />
+                            </div>
+                        </div>
+                        <div class="md-layout">
+                            <div class="md-layout-item">
+                                <span>Caftan bleu clair</span>
+                            </div>
+                        </div>
+                        <div class="md-layout">
+                            <div class="md-layout-item">
+                                1500.00€
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <Footer></Footer>
+    </div>
+</template>
+
+<script>
+import Footer from "../includes/Footer.vue";
+import Header from "../includes/Header.vue";
+export default {
+    name: "Product",
+    components: {
+        Header,
+        Footer
+    },
+    data(){
+        return {
+            height: "s",
+            number: 1,
+            color: "red"
+        }
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+    .primaryPic{
+        width: 300px;
+        height: 400px;
+    }
+    @supports(object-fit: cover){
+        img{
+            object-fit: cover;
+            object-position: center center;
+        }
+    }
+    .secondaryPic{
+        padding-bottom: 5%;
+        width: 100px;
+        height: 150px;
+    }
+    @supports(object-fit: cover){
+        img{
+            object-fit: cover;
+            object-position: center center;
+        }
+    }
+    .buttonAvis{
+        padding: 5px;
+        border: black 1px solid;
+    }
+    .similarProducts{
+        font-family: Fondamento, serif;
+        text-align: center;
+        background-color: lightgray;
+        .md-title{
+            padding-top: 3%;
+            padding-bottom: 2%;
+            font-size: 30px;
+        }
+        .productImages{
+            padding-bottom: 2%;
+        }
+        img{
+            padding-bottom: 5%;
+            width: 300px;
+            height: 400px;
+        }
+        @supports(object-fit: cover){
+            img{
+                object-fit: cover;
+                object-position: center center;
+            }
+        }
+    }
+</style>

@@ -9,6 +9,10 @@ import api from './interfaces/apiInterface'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css' // This line here
+import VueSnap from 'vue-snap'
+import 'vue-snap/dist/vue-snap.css'
+
+Vue.use(VueSnap)
 
 // prevents from display notice about running in dev mode
 Vue.config.productionTip = false
