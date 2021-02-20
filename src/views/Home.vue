@@ -3,14 +3,16 @@
         <Header></Header>
         <carousel class="carouselCollec">
             <slide class="slide slide1">
-                <div class="md-layout">
-                    <div class="md-layout-item">
-                        <span>Nos nouvelles collections</span>
+                <div class="textContainer">
+                    <div class="md-layout">
+                        <div class="md-layout-item">
+                            <span>Nos nouvelles collections</span>
+                        </div>
                     </div>
-                </div>
-                <div class="md-layout">
-                    <div class="md-layout-item">
-                        <md-button class="md-primary">Je les découvre</md-button>
+                    <div class="md-layout">
+                        <div class="md-layout-item">
+                            <md-button class="discoverBtn md-primary">Je les découvre</md-button>
+                        </div>
                     </div>
                 </div>
             </slide>
@@ -156,6 +158,20 @@ export default {
         font-family: Fondamento, serif;
         color: white;
         font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        .textContainer{
+            width: 40%;
+        }
+        .discoverBtn{
+            border: 1px solid white;
+            padding: 10px;
+            border-radius: 15px;
+            color: white !important;
+            text-decoration: none;
+        }
     }
     .slide1{
         background-image: url('../assets/velour.jpg');

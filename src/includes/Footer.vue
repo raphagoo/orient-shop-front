@@ -18,7 +18,7 @@
 
                     </div>
                     <div class="md-layout-item">
-                        A propos de nous
+                        <router-link to="/about">A propos de nous</router-link>
                     </div>
                 </div>
                 <div class="md-layout">
