@@ -7,6 +7,8 @@ import Product from "./views/Product.vue";
 import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
 import About from "./views/About.vue";
+import Products from "./views/Products.vue";
+import HomeAdmin from "./views/admin/HomeAdmin.vue"
 
 Vue.use(Router);
 
@@ -29,7 +31,7 @@ export const router = new Router({
             name: 'register',
             component: Register
         },
-        
+
         {
             path: '/shop',
             name: 'home',
@@ -41,9 +43,19 @@ export const router = new Router({
             component: Product
         },
         {
+            path: '/products',
+            name: 'products',
+            component: Products
+        },
+        {
             path: '/about',
             name: 'about',
             component: About
+        },
+        {
+            path: '/admin',
+            name: 'adminHome',
+            component: HomeAdmin
         },
         {
             path: '*',
@@ -55,7 +67,7 @@ export const router = new Router({
 router.beforeEach((to, from, next) => {
 
     // redirect to login page if not logged in and trying to access a restricted page
-    const publicPages = ['/login', '/register', '/', '/shop', '/product', '/about'];
+    const publicPages = ['/login', '/register', '/', '/shop', '/product', '/about', '/products', '/admin'];
     const authRequired = !publicPages.includes(to.path);
     const loggedIn = sessionStorage.getItem('token');
 

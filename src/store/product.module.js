@@ -2,7 +2,8 @@ import {productService} from "../services";
 import consoleLogger from "logger";
 
 const state = {
-    all: {}
+    all: {},
+    colors: []
 };
 
 const actions = {
@@ -40,6 +41,8 @@ const mutations = {
     },
     getAllProductsSuccess(state, response){
         state.all =  response.data
+        state.colors = [...new Set(response.data.map(item => item.color))];
+        state.sizes = [...new Set(response.data.map(item => item.size))];
     },
     getAllProductsFailure(state, error) {
         state.all = { error };

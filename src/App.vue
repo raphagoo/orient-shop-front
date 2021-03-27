@@ -21,4 +21,14 @@ html,body{
     color: #8b3b1c;
     font-family: Fondamento, serif;
 }
+.secondaryText{
+    font-family: Fondamento, serif;
+}
+.text-center{
+    text-align: center;
+}
+.container{
+    min-height: 100%;
+    height: 100%;
+}
 </style>

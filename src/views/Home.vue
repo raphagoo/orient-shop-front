@@ -11,7 +11,7 @@
                     </div>
                     <div class="md-layout">
                         <div class="md-layout-item">
-                            <md-button class="discoverBtn md-primary">Je les découvre</md-button>
+                            <router-link to="products"><md-button class="discoverBtn md-primary">Je les découvre</md-button></router-link>
                         </div>
                     </div>
                 </div>
@@ -23,9 +23,9 @@
         </carousel>
         <div class="md-layout md-alignment-center-center">
             <div class="md-layout-item md-size-20 links">
-                <span>NOUVELLES COLLECTIONS</span>
+                <md-button>NOUVELLES COLLECTIONS</md-button>
             </div>
-            <div class="md-layout-item md-size-20 links">PROMOTIONS</div>
+            <div class="md-layout-item md-size-20 links"><md-button>PROMOTIONS</md-button></div>
         </div>
         <carousel class="carouselProduits story-carousel story-carousel--multiple story-carousel--images">
             <slide class="story-carousel__slide">
@@ -168,6 +168,7 @@ export default {
         .discoverBtn{
             border: 1px solid white;
             padding: 10px;
+            margin-top: 35px;
             border-radius: 15px;
             color: white !important;
             text-decoration: none;
