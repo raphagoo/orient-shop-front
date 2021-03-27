@@ -3,6 +3,7 @@ const path = require(`path`)
 const fs = require('fs')
 const chalk = require('chalk')
 const mri = require('mri')
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -37,12 +38,6 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                enforce: 'pre',
-                test: /\.(js|vue)$/,
-                loader: 'eslint-loader',
-                exclude: /node_modules/,
-            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
@@ -107,9 +102,10 @@ module.exports = {
         new BaseHrefWebpackPlugin({
             baseHref
         }),
-        new webpack.DefinePlugin({
-            VERSION: JSON.stringify(version),
+        new webpack.ProvidePlugin({
+            process: 'process/browser',
         }),
+        new ESLintPlugin()
     ],
     devtool: 'inline-source-map',
     devServer: {

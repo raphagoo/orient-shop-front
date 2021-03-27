@@ -25,6 +25,9 @@ Vue.prototype.$api = api
 Vue.prototype.$log = logger
 
 logger.info('config:', config);
+
+let VERSION = "0.0.1"
+
 logger.info('main.js VERSION', VERSION); // eslint-disable-line no-undef
 
 new Vue({
