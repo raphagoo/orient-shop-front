@@ -2,7 +2,7 @@
 
 The structure of my usuals Vue projects
 
-[![Dependency Status](https://david-dm.org/raphagoo/vue-starter/status.svg)](https://david-dm.org/raphagoo/vue-starter#info=dependencies) [![devDependency Status](https://david-dm.org/raphagoo/vue-starter/dev-status.svg)](https://david-dm.org/raphagoo/vue-starter#info=devDependencies)
+[![Dependency Status](https://david-dm.org/raphagoo/orient-shop-front/status.svg)](https://david-dm.org/raphagoo/orient-shop-front#info=dependencies) [![devDependency Status](https://david-dm.org/raphagoo/orient-shop-front/dev-status.svg)](https://david-dm.org/raphagoo/orient-shop-front#info=devDependencies)
 
 Here is a more complete [description](./description.md).
 
