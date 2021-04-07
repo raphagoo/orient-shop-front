@@ -170,6 +170,7 @@ export default {
             padding: 10px;
             margin-top: 35px;
             border-radius: 15px;
+            background-color: #8b3b1c;
             color: white !important;
             text-decoration: none;
         }

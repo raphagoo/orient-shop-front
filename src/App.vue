@@ -5,6 +5,15 @@
 </template>
 
 <style lang="scss">
+
+@import "~vue-material/dist/theme/engine"; // Import the theme engine
+
+@include md-register-theme("default", (
+    primary: #8b3b1c, // The primary color of your brand
+    accent: #1f1f1f // The secondary color of your brand
+));
+
+@import "~vue-material/dist/theme/all"; // Apply the theme
 // @import '~normalize.css';
 // @import '~reset-css/_reset.scss';
 * {
@@ -20,6 +29,10 @@ html,body{
 .primaryText{
     color: #8b3b1c;
     font-family: Fondamento, serif;
+}
+.primaryBtn{
+    background-color: #8b3b1c !important;
+    color: white !important;
 }
 .secondaryText{
     font-family: Fondamento, serif;

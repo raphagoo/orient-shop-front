@@ -22,16 +22,55 @@ const actions = {
     },
 
     getProductById({commit}, id){
-        commit('getProductByIdRequest');
-        productService.getProductById(id)
-            .then(
-                product => {
-                    commit('getProductByIdSuccess', product)
-                },
-                error => {
-                    commit('getProductByIdFailure', error);
-                }
-            )
+        return new Promise(function (resolve, reject) {
+            commit('getProductByIdRequest');
+            productService.getProductById(id)
+                .then(
+                    response => {
+                        commit('getProductByIdSuccess', response.data)
+                        resolve(response)
+                    },
+                    error => {
+                        commit('getProductByIdFailure', error);
+                        reject(error)
+                    }
+                )
+        })
+    },
+
+    addProduct({commit}, product){
+        return new Promise(function(resolve, reject){
+            commit('addProductRequest');
+            productService.addProduct(product)
+                .then(response => {
+                    resolve(response)
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
+
+    },
+    updateProduct({commit}, product){
+        return new Promise(function(resolve, reject){
+            commit('updateProductRequest');
+            productService.updateProduct(product)
+                .then(response => {
+                    resolve(response)
+                })
+                .catch(error => {
+                    reject(error)
+                })
+        })
+    },
+    removeProduct({commit}, id){
+        productService.removeProduct(id)
+            .then(() => {
+                commit('removeProductSuccess', id)
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 };
 
@@ -51,10 +90,21 @@ const mutations = {
         state.all = { loading: true };
     },
     getProductByIdSuccess(state, product){
-        state.all = { items: product.message };
+        state.active = product;
     },
     getProductByIdFailure(state, error) {
         state.all = { error };
+    },
+    addProductRequest(){
+
+    },
+    updateProductRequest(){
+
+    },
+    removeProductSuccess(state, id) {
+        state.all = state.all.filter(function(product){
+            return product.id !== id;
+        });
     }
 };
 

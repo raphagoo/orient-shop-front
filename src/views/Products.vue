@@ -72,6 +72,7 @@
             <div class="md-layout-item md-size-80 productDiv">
                 <div class="md-layout">
                     <div v-bind:key="product.id" v-for="product in productsFiltered" class="md-layout-item md-size-25">
+                        <router-link to="/product">
                         <div class="md-layout">
                             <div class="md-layout-item text-center">
                                 <img class="productPic" alt="product picture" src="src/assets/caftan-marocain.jpg"/>
@@ -92,6 +93,7 @@
                                 <md-icon>add_shopping_cart</md-icon>
                             </div>
                         </div>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -185,6 +187,10 @@ export default {
             object-fit: cover;
             object-position: center center;
         }
+    }
+    a{
+        color: black !important;
+        text-decoration: none !important;
     }
 }
 </style>

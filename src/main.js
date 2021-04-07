@@ -8,11 +8,13 @@ import { store } from './store'
 import api from './interfaces/apiInterface'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
-import 'vue-material/dist/theme/default.css'
 import VueSnap from 'vue-snap'
 import 'vue-snap/dist/vue-snap.css'
 import 'vue-material-slider/dist/vue-material-slider.css';
 import VueMaterialSlider from 'vue-material-slider';
+import VueSimpleAlert from "vue-simple-alert";
+
+Vue.use(VueSimpleAlert);
 
 Vue.use(VueMaterialSlider);
 Vue.use(VueSnap)

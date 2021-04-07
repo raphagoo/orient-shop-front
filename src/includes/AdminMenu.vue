@@ -17,9 +17,15 @@
                 <span class="md-list-item-text">Accueil</span>
             </md-list-item>
 
-            <md-list-item to="/">
+            <md-list-item md-expand>
                 <md-icon style="color:white;">shopping_basket</md-icon>
                 <span class="md-list-item-text">Produits</span>
+
+                <md-list slot="md-expand">
+                    <md-list-item to="/admin/listProduct" class="md-inset">Produits ajoutés</md-list-item>
+                    <md-list-item to="/admin/addProduct" class="md-inset">Ajouter un produit</md-list-item>
+                    <md-list-item class="md-inset">Produits en cours de publication</md-list-item>
+                </md-list>
             </md-list-item>
 
             <md-list-item to="/">
@@ -60,8 +66,11 @@ export default {
     .md-app-drawer, .md-toolbar, .md-list, .md-list-item{
         background-color: #8b3b1c !important;
         color: white !important;
-        .md-list-item-text{
+        .md-list-item-text, .md-inset{
             color: white !important;
+        }
+        .md-list-item-content{
+            font-size: 8px !important;
         }
     }
     .logoMenu{
