@@ -1,5 +1,6 @@
 <template>
-    <div class="md-layout-item md-size-20 containerMenu">
+    <div class="md-layout-item md-size-25 containerMenu">
+    <md-app>
     <md-app-drawer md-permanent="full">
         <md-toolbar md-elevation="0">
             <img class="logoMenu text-center" src="src/assets/Logo-blanc.svg" />
@@ -12,7 +13,7 @@
                 </md-avatar>
                 <span class="md-list-item-text">User connecté</span>
             </md-list-item>
-            <md-list-item to="/">
+            <md-list-item to="/admin">
                 <md-icon style="color:white;">home</md-icon>
                 <span class="md-list-item-text">Accueil</span>
             </md-list-item>
@@ -33,9 +34,14 @@
                 <span class="md-list-item-text">Site Management</span>
             </md-list-item>
 
-            <md-list-item to="/">
+            <md-list-item md-expand>
                 <md-icon style="color:white;">checkroom</md-icon>
                 <span class="md-list-item-text">Gestion des commandes</span>
+
+                <md-list slot="md-expand">
+                    <md-list-item to="/admin/listProduct" class="md-inset">Inventaire</md-list-item>
+                    <md-list-item to="/admin/addProduct" class="md-inset">Paniers abandonnés</md-list-item>
+                </md-list>
             </md-list-item>
 
             <md-list-item to="/">
@@ -44,6 +50,7 @@
             </md-list-item>
         </md-list>
     </md-app-drawer>
+    </md-app>
     </div>
 </template>
 
@@ -58,7 +65,7 @@ export default {
         min-height: 100%;
         height: 100%;
     }
-    .md-app-drawer{
+    .md-app-drawer, .md-app{
         min-height: 100%;
         height: 100%;
         width: 100%;

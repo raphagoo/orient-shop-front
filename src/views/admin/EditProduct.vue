@@ -1,7 +1,17 @@
 <template>
     <div class="md-layout container">
         <AdminMenu></AdminMenu>
-        <div class="md-layout-item md-size-80 contentContainer">
+        <div class="md-layout-item md-size-75 contentContainer">
+            <div class="md-layout">
+                <div class="md-layout-item md-size-80">
+                    <form>
+                        <md-field>
+                            <label for="search">Search</label>
+                            <md-input name="search" id="search" autocomplete="search" />
+                        </md-field>
+                    </form>
+                </div>
+            </div>
             <div class="md-layout">
                 <div class="md-layout-item">
                     <md-icon>shopping_basket</md-icon>
@@ -231,6 +241,6 @@ export default {
 <style lang="scss" scoped>
 .contentContainer{
     padding-left: 10%;
-    padding-top: 5%;
+    padding-top: 2%;
 }
 </style>

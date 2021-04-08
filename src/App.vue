@@ -40,6 +40,9 @@ html,body{
 .text-center{
     text-align: center;
 }
+.text-right{
+    text-align: right;
+}
 .container{
     min-height: 100%;
     height: 100%;
