@@ -3,7 +3,7 @@
         <Header/>
         <div class="background-register">
             <form class="box">
-                        
+                        <h1>dzz"</h1>
             </form>   
         </div>
         <Footer/>

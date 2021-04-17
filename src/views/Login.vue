@@ -8,18 +8,18 @@
         
             <div class="md-layout">
                 <div class="login-form">
-                    <H1 class="titre">Vous connecter</H1>
-                    <form class="box">
+                    <H1 class="titre">Vous connecter {{form}}</H1>
+                    <form @submit.prevent="submit" class="box">
                         <div class="field">
-                            <label class="label">Veuillez reinseigner votre adresse mail : </label>
+                            <label class="label" for="email">Veuillez reinseigner votre adresse mail : </label>
                             <div class="control">
-                            <input type="email"  placeholder="Email :" class="input" required>
+                            <input type="text"  placeholder="Email :" class="input" id="email" v-model="form.email" required>
                         </div>
                         </div>
                         <div class="field">
-                            <label class="label">Veuillez reinseigner votre mot de passe</label>
+                            <label class="label" for="password" id="password">Veuillez reinseigner votre mot de passe</label>
                             <div class="control">
-                            <input type="password"  placeholder="Mot de passe :" class="input" required>
+                            <input type="password"  placeholder="Mot de passe :" class="input" v-model="form.password" required>
                         </div>
                         </div>
 
@@ -76,6 +76,22 @@ import Footer from "../includes/Footer.vue";
 export default {
     name: "Login",
     components: {Footer, Header},
+
+    data () {
+        return {
+            form: {
+                email: '',
+                password: '',
+            }
+        }
+    },
+
+    methods: {
+        submit() {
+            console.log(this.form);
+        }
+    }
+    
     
     
 
