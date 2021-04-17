@@ -77,8 +77,7 @@ export default {
     background-image: url("../assets/Caftan-or.jpg");
     width: 1500px;
     height: 800px;
-    margin-left:20%; /* -largeur/2 */
-    margin-right: 20%;
+
     margin-top:10px; /* -hauteur/2 */
 }
 .background-card {

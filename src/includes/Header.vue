@@ -12,6 +12,15 @@
 
 
         <div class="md-toolbar-section-end">
+          <md-button v-if="!loggedIn" class="Navbutton" >
+                <router-link to="/login">Connexion</router-link>
+            </md-button>
+            <md-button v-if="!loggedIn" class="nav-button">
+                <router-link to="/register">Inscription</router-link>
+            </md-button>
+            <md-button v-if="loggedIn" v-on:click="logoutUser">
+                Se déconnecter
+            </md-button>
            <md-button class="md-layout-item md-size-10">
                 <md-icon style="color: white;">facebook</md-icon>
             </md-button>
@@ -41,15 +50,12 @@
 
 
           <md-button class="md-icon-button" >
-            <router-link to="/login"><md-icon style="color:black">account_circle</md-icon></router-link>
+            <router-link to="/profil"><md-icon style="color:black">account_circle</md-icon></router-link>
           </md-button>
 
           <md-button class="md-icon-button" >
             <md-icon style="color:black">shopping_basket</md-icon>
           </md-button>
-            <md-button v-if="loggedIn" class="md-icon-button" v-on:click="logoutUser" >
-                <md-icon style="color:red">account_circle</md-icon>
-            </md-button>
         </div>
       </div>
 
@@ -112,6 +118,8 @@
     font-family: Fondamento;
     font-weight: bold;
 }
+
+
 
 
 

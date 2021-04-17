@@ -117,6 +117,7 @@ export default {
 }
 .md-layout {
     background-color: white;
+
 }
 .login-form  {
     margin: 80px 110px;
