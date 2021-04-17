@@ -47,6 +47,9 @@
           <md-button class="md-icon-button" >
             <md-icon style="color:black">shopping_basket</md-icon>
           </md-button>
+            <md-button v-if="loggedIn" class="md-icon-button" v-on:click="logoutUser" >
+                <md-icon style="color:red">account_circle</md-icon>
+            </md-button>
         </div>
       </div>
 
@@ -67,6 +70,8 @@
     </md-toolbar>
   </div>
 </template>
+
+
 
 <style lang="scss" scoped>
 
@@ -114,11 +119,22 @@
 </style>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+
 export default {
-  name: 'ContentActions'
+  name: 'Header',
+    computed: {
+        ...mapState('user', ['status']),
+        loggedIn () {
+            console.log(status);
+            return this.$store.state.user.status.loggedIn;
+        }
+    },
+    methods: {
+        ...mapActions('user', ['logout']),
+        logoutUser() {
+          this.logout()
+      }
+    }
 }
 </script>
-Code copied!
-Elements
-The following classes creates parts of a toolbar:
-

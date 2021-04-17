@@ -5,21 +5,21 @@
             <div class="md-layout-item marocaineBg">
                 <img src="src/assets/caftan-rouge.jpg" />
             </div>
-        
+
             <div class="md-layout">
                 <div class="login-form">
-                    <H1 class="titre">Vous connecter {{form}}</H1>
+                    <H1 class="titre">Vous connecter</H1>
                     <form @submit.prevent="submit" class="box">
                         <div class="field">
                             <label class="label" for="email">Veuillez reinseigner votre adresse mail : </label>
                             <div class="control">
-                            <input type="text"  placeholder="Email :" class="input" id="email" v-model="form.email" required>
+                            <input type="text"  placeholder="Email :" class="input" id="email" v-model="email" required>
                         </div>
                         </div>
                         <div class="field">
                             <label class="label" for="password" id="password">Veuillez reinseigner votre mot de passe</label>
                             <div class="control">
-                            <input type="password"  placeholder="Mot de passe :" class="input" v-model="form.password" required>
+                            <input type="password"  placeholder="Mot de passe :" class="input" v-model="password" required>
                         </div>
                         </div>
 
@@ -48,7 +48,7 @@
                                 <span>Connectez vous via</span>
                             </div>
                             <div class="md-layout-item login-span2">
-                                <span>Vous n'avez pas encore de compte</span> 
+                                <span>Vous n'avez pas encore de compte</span>
                             </div>
                         </div>
                         <div class="md-layout md-gutter">
@@ -62,10 +62,10 @@
                                 <router-link to="/register"><md-button class="buttonCo" value="Inscription">Inscription</md-button></router-link>
                             </div>
                         </div>
-                    </form>   
+                    </form>
                 </div>
             </div>
-        </div>    
+        </div>
         <Footer/>
     </div>
 </template>
@@ -73,29 +73,36 @@
 <script>
 import Header from "../includes/Header.vue";
 import Footer from "../includes/Footer.vue";
+import { mapState, mapActions } from 'vuex'
+
 export default {
     name: "Login",
     components: {Footer, Header},
-
     data () {
         return {
-            form: {
-                email: '',
-                password: '',
-            }
+            email: '',
+            password: '',
+            submitted: false
         }
     },
-
+    computed: {
+        ...mapState('user', ['status'])
+    },
+    created () {
+        // reset login status
+        this.logout();
+    },
     methods: {
-        submit() {
-            console.log(this.form);
+        ...mapActions('user', ['login', 'logout']),
+        submit () {
+            this.submitted = true;
+            const { email, password } = this;
+            if (email && password) {
+                this.login({ email, password })
+            }
         }
     }
-    
-    
-    
-
-}
+};
 
 </script>
 
@@ -120,7 +127,7 @@ export default {
     padding: 15PX 15PX;
     width: 100%;
      border-radius: 10px;
-    
+
  }
  .input::placeholder {
     text-align: left;
@@ -128,7 +135,7 @@ export default {
     color: black;
 }
  .titre {
-    
+
      color: #8b3b1c ;
      font-family: Fondamento, serif;
      margin-bottom: 50px;
@@ -141,7 +148,7 @@ export default {
 }
 .forget-password {
     padding-top: 30px;
-    
+
 }
 .login-span {
     margin: 10px 20px 20px;
@@ -154,5 +161,5 @@ export default {
 
 
 
- 
+
 </style>
