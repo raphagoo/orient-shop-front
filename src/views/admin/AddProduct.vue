@@ -55,7 +55,7 @@
                     <div class="md-layout-item md-size-30 md-small-size-50">
                         <md-field :class="getValidationClass('stock')">
                             <label for="price">Quantité</label>
-                            <md-input name="price" id="stock" type="number" v-model="form.stock" :disabled="sending" />
+                            <md-input name="stock" id="stock" type="number" v-model="form.stock" :disabled="sending" />
                             <span class="md-error" v-if="!$v.form.stock.required">La quantité est requise</span>
                             <span class="md-error" v-else-if="!$v.form.stock.maxlength">Quantité invalide</span>
                         </md-field>
@@ -98,8 +98,6 @@
                 <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
                 <md-button type="submit" class="md-primary md-raised primaryBtn" :disabled="sending">Publier</md-button>
-
-                <md-snackbar :md-active.sync="productSaved">The user {{ lastProduct }} was saved with success!</md-snackbar>
             </form>
         </div>
     </div>
@@ -139,22 +137,22 @@ export default {
         form: {
             name: {
                 required,
-                minLength: minLength(5)
+                minLength: minLength(4)
             },
             color: {
                 required,
-                minLength: minLength(3)
+                minLength: minLength(2)
             },
             price: {
                 required,
-                maxLength: maxLength(3)
+                maxLength: maxLength(5)
             },
             size: {
                 required
             },
             category: {
                 required,
-                minLength: minLength(5)
+                minLength: minLength(4)
             },
             stock: {
                 required,
@@ -203,12 +201,20 @@ export default {
         },
         saveProduct () {
             this.sending = true
+            this.form.stock = parseInt(this.form.stock)
+            this.form.price = parseFloat(this.form.price);
 
             // Instead of this timeout, here you can call your API
             this.addProduct(this.form)
             .then(() => {
-                this.lastProduct = `${this.form.name}`
-                this.productSaved = true
+                this.$fire({
+                    title: "Succés",
+                    text: "Le produit " + this.form.name + " a été ajouté",
+                    type: "success",
+                    }).then(r => {
+                        console.log(r.value)
+                        this.$router.push("/admin/listProduct")
+                })
                 this.sending = false
             })
             .catch(error => {

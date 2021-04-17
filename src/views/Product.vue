@@ -32,8 +32,8 @@
             </div>
             <div class="md-layout-item">
                 <div class="md-layout">
-                    <div class="md-layout-item primaryText md-headline md-size-75">Caftan Or</div>
-                    <div class="md-layout-item primaryText md-headline md-size-25">80.00€</div>
+                    <div class="md-layout-item primaryText md-headline md-size-75">{{product.name}}</div>
+                    <div class="md-layout-item primaryText md-headline md-size-25">{{product.price}}.00€</div>
                 </div>
                 <div class="md-layout">
                     <div class="md-layout-item">
@@ -42,14 +42,7 @@
                 </div>
                 <div class="md-layout">
                     <div class="md-layout-item">
-                        <md-field>
-                            <label for="height">Taille</label>
-                            <md-select v-model="height" name="height" id="height">
-                                <md-option value="s">S</md-option>
-                                <md-option value="m">M</md-option>
-                                <md-option value="l">L</md-option>
-                            </md-select>
-                        </md-field>
+                        <span>Taille : {{product.size}}</span>
                     </div>
                 </div>
                 <div class="md-layout">
@@ -62,14 +55,7 @@
                 </div>
                 <div class="md-layout">
                     <div class="md-layout-item">
-                        <md-field>
-                            <label for="color">Couleur</label>
-                            <md-select v-model="color" name="color" id="color">
-                                <md-option value="brown">Marron</md-option>
-                                <md-option value="cyan">Cyan</md-option>
-                                <md-option value="red">Red</md-option>
-                            </md-select>
-                        </md-field>
+                        <span>Couleur : {{product.color}}</span>
                     </div>
                 </div>
                 <div class="md-layout">
@@ -79,12 +65,12 @@
                 </div>
                 <div class="md-layout">
                     <div class="md-layout-item">
-                       Lorem Ipsum
+                       {{product.description}}
                     </div>
                 </div>
                 <div class="md-layout">
                     <div class="md-layout-item md-size-35">
-                        <md-button class="md-raised md-primary"><md-icon style="color: white;">add</md-icon> Ajouter a mon panier</md-button>
+                        <md-button @click="addToCart(product.id)" class="md-raised md-primary"><md-icon style="color: white;">add</md-icon> Ajouter a mon panier</md-button>
                     </div>
                     <div class="md-layout-item md-size-35">
                         <md-button class="buttonAvis"><md-icon>speaker_notes</md-icon> Voir les avis</md-button>
@@ -178,17 +164,32 @@
 <script>
 import Footer from "../includes/Footer.vue";
 import Header from "../includes/Header.vue";
+import {mapActions, mapState} from "vuex";
 export default {
     name: "Product",
     components: {
         Header,
         Footer
     },
+    computed: {
+        ...mapState({
+            product: state => state.product.active
+        }),
+    },
     data(){
-        return {
-            height: "s",
-            number: 1,
-            color: "red"
+        return{
+            number: 1
+        }
+    },
+    methods: {
+        ...mapActions('product', {
+            getProductById: 'getProductById'
+        }),
+        ...mapActions('cart', {
+            addToCart: 'addToCart'
+        }),
+        beforeMount() {
+            this.getProductById(this.$route.params.productId)
         }
     }
 }

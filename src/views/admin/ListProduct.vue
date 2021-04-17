@@ -26,6 +26,7 @@
                             <md-table-cell md-label="Nom" md-sort-by="name">{{item.name}}</md-table-cell>
                             <md-table-cell md-label="Prix" md-sort-by="price" md-numeric>{{item.price}}</md-table-cell>
                             <md-table-cell md-label="Couleur" md-sort-by="color">{{item.color}}</md-table-cell>
+                            <md-table-cell md-label="Quantité" md-sort-by="color">{{item.stock}}</md-table-cell>
                             <md-table-cell md-label="Actions"><div @click="deleteProduct(item)"><md-icon>delete</md-icon></div><div @click="modifyProduct(item);"><md-icon>edit</md-icon></div></md-table-cell>
                         </md-table-row>
                     </md-table>

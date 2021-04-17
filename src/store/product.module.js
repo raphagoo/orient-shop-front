@@ -39,6 +39,7 @@ const actions = {
     },
 
     addProduct({commit}, product){
+        console.log(product)
         return new Promise(function(resolve, reject){
             commit('addProductRequest');
             productService.addProduct(product)

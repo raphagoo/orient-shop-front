@@ -66,9 +66,9 @@
                             </div>
                         </div>
                         <div class="md-layout">
-                            <div v-bind:key="product.id" v-for="product in lastThree" class="md-layout-item md-size-33">
+                            <div v-bind:key="product.id" v-for="product in lastThree" class="md-layout-item md-size-33 productDisplay">
                                 <img src="src/assets/caftan-rouge.jpg" alt="photo product"/>
-                                {{product.name}} - {{product.price}} €
+                                <span class="text-center"> {{product.name}} - {{product.price}} €</span>
                             </div>
                         </div>
                     </div>
@@ -116,6 +116,10 @@ export default {
             background-color: lightgrey;
             padding: 20px;
             border-radius: 20px;
+            img{
+                max-width: 125px;
+                max-height: 200px;
+            }
             .md-title{
                 padding-bottom: 3%;
             }
