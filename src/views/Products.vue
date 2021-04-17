@@ -65,7 +65,7 @@
                     <div class="md-layout-item md-title">
                         Fourchettes de prix
                         <md-divider></md-divider>
-                        <vue-material-range-slider :thumbLabel="true" :stepSize="search.stepSize" v-model="search.price" />
+                        <span>{{Math.min(...search.price)}} €</span><vue-material-range-slider class="slider" :thumbLabel="true" :min="0" :max="500" :stepSize="search.stepSize" v-model="search.price" /><span>{{Math.max(...search.price)}} €</span>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,6 @@
                                 <md-icon>add_shopping_cart</md-icon>
                             </div>
                         </div>
-                        </router-link>
                     </div>
                 </div>
             </div>
@@ -113,7 +112,7 @@ export default {
             search: {
                 size: [],
                 color: [],
-                price: [0,100],
+                price: [0, 500],
                 stepSize: 1
             }
         }
@@ -158,6 +157,7 @@ export default {
 <style lang="scss" scoped>
 .filterDiv{
     padding-right: 15px;
+    padding-left: 5px;
     border-right: 2px solid grey;
     .slider-thumb, .slider-thumb-label, .slider-track-fill{
         background-color: black !important;
@@ -172,8 +172,8 @@ export default {
     .md-divider{
         margin-bottom: 20px;
     }
-    .filterInput{
-        padding-left: 15%;
+    .slider, .slider-horizontal{
+        max-width: 100px !important;
     }
 }
 .productDiv {
