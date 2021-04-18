@@ -8,38 +8,38 @@
                         <div class="md-layout-first">
                             <label class="label">Votre Prenom </label>
                             <div class="control">
-                            <input type="text"  placeholder="Exemple: Safae" class="input" required>
+                                <input type="text"  placeholder="Exemple: Safae" class="input" required>
                             </div>
 
                             <label class="label"> Nom de famille </label>
                             <div class="control">
-                            <input type="text"  placeholder="Exemple: Enaim" class="input" required>
+                                <input type="text"  placeholder="Exemple: Enaim" class="input" required>
                             </div>
 
                             <label class="label">Adresse e-mail </label>
                             <div class="control">
-                            <input type="email"  placeholder="Email :" class="input" required>
+                                <input type="email"  placeholder="Email :" class="input" required>
                             </div>
 
                             <label class="label">Mot de passe</label>
                             <div class="control">
-                            <input type="password"  placeholder="Mot de passe :" class="input" required>
+                                <input type="password"  placeholder="Mot de passe :" class="input" required>
                             </div>
                         </div>
 
                         <div class="md-layout-second">
                             <label class="label">Votre Adresse </label>
                             <div class="control">
-                            <input type="email"  placeholder="ex.2 Rue du pasteur 13003 Marseille :" class="input" required>
+                                <input type="email"  placeholder="ex.2 Rue du pasteur 13003 Marseille :" class="input" required>
                             </div>
 
                             <label class="label">Télephone mobile </label>
                             <div class="control">
-                            <input type="phone"  placeholder="+33 6 68 01 54 76 :" class="input" required>
+                                <input type="phone"  placeholder="+33 6 68 01 54 76 :" class="input" required>
                             </div>
 
-                            <md-checkbox v-model="boolean">Je désire étre informé des anno</md-checkbox> <br>
-                            <md-checkbox v-model="boolean">Boolean</md-checkbox>
+                            <md-checkbox >Je désire étre informé des anno</md-checkbox> <br>
+                            <md-checkbox >Boolean</md-checkbox>
 
                             <div class="field">
                                 <input type="submit" class="buttonCo" value="Inscription" />

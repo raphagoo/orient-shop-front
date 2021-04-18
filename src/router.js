@@ -6,9 +6,11 @@ import Welcome from "./views/Welcome.vue";
 import Product from "./views/Product.vue";
 import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
-import PayementMenu from "./views/profil/PaymentMenu.vue";
+import PayementMenu from "./views/PaymentMenu.vue";
+import FavoriMenu from "./views/FavoriMenu.vue";
+import CommandeMenu from "./views/CommandeMenu.vue";
 import About from "./views/About.vue";
-import Profil from "./views/Profil.vue";
+import ProfilMenu from "./views/ProfilMenu.vue";
 import Products from "./views/Products.vue";
 import HomeAdmin from "./views/admin/HomeAdmin.vue"
 import AddProduct from "./views/admin/AddProduct.vue";
@@ -37,9 +39,24 @@ export const router = new Router({
             component: Register
         },
         {
-            path: '/profil/payment',
-            name: 'PayementMenu',
+            path: '/profil',
+            name: 'profil',
+            component: ProfilMenu
+        },
+        {
+            path: '/payment',
+            name: 'Payement',
             component: PayementMenu
+        },
+        {
+            path: '/favori',
+            name: 'favori',
+            component: FavoriMenu
+        },
+        {
+            path: '/commande',
+            name: 'commande',
+            component: CommandeMenu
         },
 
         {
@@ -61,11 +78,6 @@ export const router = new Router({
             path: '/about',
             name: 'about',
             component: About
-        },
-        {
-            path: '/profil',
-            name: 'profil',
-            component: Profil
         },
         {
             path: '/admin',

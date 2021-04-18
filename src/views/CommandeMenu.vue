@@ -20,13 +20,24 @@
                         <md-table-row class="osf-background-grey" >
                             <md-table-head v-for="item in menu_content.items"  :key="item.content">{{ item.label }}</md-table-head>
                         </md-table-row>
-                        <md-table-row class="osf-background-grey" >
-                            <md-table-cell>Enaim</md-table-cell>
-                            <md-table-cell>Safae</md-table-cell>
-                            <md-table-cell>Safae@Enaim.com</md-table-cell>
-                            <md-table-cell>272938930283930</md-table-cell>
-                            <md-table-cell>Visa</md-table-cell>
+                        <md-table-row class="osf-background-grey testt" >
+                            <md-table-cell class="test">IMG</md-table-cell>
+                            <md-table-cell>fr1093847635</md-table-cell>
+                            <md-table-cell>27/10/20</md-table-cell>
+                            <md-table-cell>Enaim Safae</md-table-cell>
+                            <md-table-cell>109.45</md-table-cell>
+                            <md-table-cell>Terminée</md-table-cell>
                         </md-table-row>
+                        <md-table-row class="osf-background-grey" >
+                            <md-table-cell >IMG</md-table-cell>
+                            <md-table-cell>fr1093847635</md-table-cell>
+                            <md-table-cell>27/10/20</md-table-cell>
+                            <md-table-cell>Enaim Safae</md-table-cell>
+                            <md-table-cell>109.45</md-table-cell>
+                            <md-table-cell>Terminée</md-table-cell>
+
+                        </md-table-row>
+
                     </md-table>
                 </md-app-content>
             </md-app>
@@ -39,7 +50,7 @@
 import Header from "../includes/Header.vue";
 import Footer from "../includes/Footer.vue";
 export default {
-    name: "Profil",
+    name: "CommandeMenu",
     components: {Footer, Header},
     data() {
     return {
@@ -62,23 +73,26 @@ export default {
       },
 
       menu_content: {
-        label: 'Information de paiement',
+        label: 'Mes Commandes',
         items: [
           {
-            label: 'Nom',
+            label: 'Produit',
           },
           {
-            label: 'Prenom',
+            label: 'Commande #',
           },
           {
-            label: 'Numero de carte',
+            label: 'Date',
           },
           {
-            label: 'Type de carte',
+            label: 'Expédié à',
           },  
           {
-            label: 'Date d\'expiration',
-          }, 
+            label: 'Total de la commande',
+          },
+          {
+            label: 'Statut',
+          },
         ]
       },
 
@@ -127,4 +141,7 @@ export default {
 .osf-background-grey {
     background-color:#f1f1f1 !important;
 }
+
+
+
 </style>
