@@ -1,37 +1,72 @@
 <template>
     <div class="container">
         <Header/>
-        <div class="page-container md-layout-row">
-            <md-app>
-                <md-app-drawer class="md-transparent osf-background-grey" md-permanent="full" >
-                    <md-toolbar class="osf-background-grey" md-elevation="0">
-                        <h2 class="titreGeneral"> {{ menu_general.label }}</h2>
-                    </md-toolbar>
-
-                    <md-list class="osf-background-grey"  v-if="menu_general.items.length > 0" >
-                        <md-list-item v-for="item in menu_general.items"  :key="item.general" >
-                            <span class="md-list-item-text"> {{ item.label }} </span>
-                        </md-list-item>
-                    </md-list>
-                </md-app-drawer>
-                <md-app-content class="osf-background-grey">
-                    <h1 class="titreContent">{{ menu_content.label }}</h1>
-                    
-                    
+        <div class="container md-layout osf-background-grey">
+            <div class="md-layout-item md-size-20" >
+                <sidebar-profil></sidebar-profil>
+            </div>
+            <div class="md-layout-item md-size-80" style="padding: 3rem;">
+                <h1 class="titreContent">{{ menu_content.label }}</h1>
+                <div class="container" >
+                <H2 class="titreSecond">Informations du compte</H2>
                     <div class="md-layout md-gutter">
-                      <div class="md-layout-item"> 
-                        <h2>Informations de contact</h2>
-                        Enaim Safae <br>
-                        enaim.safae@ynov.com
-                      </div>
-                      <div class="md-layout-item md-size-40">
-                        <h2>Newsletter</h2>
-                        Vous n'etes pas encore inscrit a notre lettre d'information.
-                      </div>
+                      
+                        <div class="md-layout-item">
+                            <h2 class="titreThird">Informations de contact</h2>
+                            {{ getUser.user.firstname }} {{ getUser.user.lastname }}<br>
+                            {{ getUser.user.email }}
+                        </div>
+                        <div class="md-layout-item md-size-50">
+                            <h2 class="titreThird">Newsletter</h2>
+                            Vous n'etes pas encore inscrit a notre lettre d'information.
+                            <div class="md-layout">
+                              <div class="md-layout-item">
+                                <md-checkbox v-model="boolean">Je m'abonne</md-checkbox>
+                              </div>
+                              <div class="md-layout-item">
+                                <md-checkbox v-model="boolean">Je me désabonne</md-checkbox>
+                              </div>
+                            </div>
+                            <div class="field">
+                                <input type="submit" class="button_enregistrer" value="Enregistrer" />
+                            </div>
+                            
+                        </div>
                     </div>
-
-                </md-app-content>
-            </md-app>
+                  <H2 class="titreSecond">Carnet d'adresse </H2> 
+                    <div class="md-layout md-gutter">
+                      
+                        <div class="md-layout-item">
+                            <h2 class="titreThird">Adresse de facturation par default</h2>
+                            {{ getUser.user.firstname }} {{ getUser.user.lastname }}<br>
+                            {{ getUser.user.address }} <br>
+                            Téléphone : {{ getUser.user.phone }}
+                        </div>
+                        <div class="md-layout-item md-size-50">
+                            <div class="md-layout-item">
+                              <h2 class="titreThird">Adresse de facturation par default</h2>
+                              {{ getUser.user.firstname }} {{ getUser.user.lastname }}<br>
+                              {{ getUser.user.address }} <br>
+                              Téléphone : {{ getUser.user.phone }}
+                            </div>
+                           
+                            <h2 class="titreThird">Préférence de livraison</h2>
+                            <div class="md-layout">
+                              <div class="md-layout-item">
+                                <md-checkbox v-model="boolean">En point de relais </md-checkbox>
+                              </div>
+                              <div class="md-layout-item">
+                                <md-checkbox v-model="boolean">A domicile</md-checkbox>
+                              </div>
+                            </div>
+                            <div class="field">
+                                <input type="submit" class="button_enregistrer" value="Enregistrer" />
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <Footer/>
     </div>
@@ -40,29 +75,14 @@
 <script>
 import Header from "../includes/Header.vue";
 import Footer from "../includes/Footer.vue";
+import SidebarProfil from "../includes/SidebarProfil.vue";
+import {mapState} from "vuex";
+
 export default {
     name: "ProfilMenu",
-    components: {Footer, Header},
+    components: {Footer, Header, SidebarProfil},
     data() {
-    return {
-      menu_general: {
-        label: 'Profil',
-        items: [
-          {
-            label: 'Mon compte',
-          },
-          {
-            label: 'Mes commandes',
-          },
-          {
-            label: 'Mes artricles favoris',
-          },
-          {
-            label: 'Informations de paiement',
-          },  
-        ]
-      },
-
+        return {
       menu_content: {
         label: 'Mon compte',
         items: [
@@ -77,62 +97,59 @@ export default {
           },
           {
             label: 'Type de carte',
-          },  
+          },
           {
             label: 'Date d\'expiration',
-          }, 
+          },
         ]
       },
-
-
     }
-  },
-    
-    
-
+    },
+    computed: {
+        ...mapState({
+            user: state => state.user
+        }),
+        getUser(){
+            return this.user;
+        },
+    }
 }
-
 </script>
 
 <style lang="scss" scoped>
-
-.md-card {
-    box-shadow: unset !important;
-}
- .md-app {
-    min-height: 700px;
-    border: 0px solid rgba(#000, .12);
-  }
-  .md-drawer {
-    width: 300px;
-    height: 800px;
-  }
-.md-list-item-text {
-    margin-left: 80px;
-    margin-top: 30px;   
-}
-.titreGeneral {
-    margin-left: 60px;
-    margin-bottom: 50px;
-    margin-top: 50px;
-    color: #8b3b1c ;
-     font-family: Fondamento, serif;
+.osf-background-grey {
+    background-color:#f1f1f1 !important;
 }
 .titreContent {
     text-align: center;
     margin-top: 50px;
     color: #8b3b1c ;
      font-family: Fondamento, serif;
+     margin-bottom: 90px;
 }
+.titreSecond {
+    margin-top: 50px;
+    margin-bottom: 15px;
+    color: #8b3b1c ;
+     font-family: Fondamento, serif;
+     text-decoration: underline;
+     text-decoration-thickness: 0.2em;
+     border-bottom: 1px solid grey;
 
-
-.osf-background-grey {
-    background-color:#f1f1f1 !important;
 }
-
-.md-layout {
-    padding-left: 5em;
-
+.button_enregistrer {
+    background-color: #8b3b1c;
+    
+    width: 70%;
+    height: 45px;
+    color: white  !important;
+    margin-top: 0.5rem;
+}
+.container {
+  height: 900PX;
+}
+.titreThird {
+  font-size: 18px;
 
 }
 </style>

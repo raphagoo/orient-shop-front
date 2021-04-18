@@ -24,23 +24,12 @@ const actions = {
         userService.logout();
         commit('logout');
     },
-    register({ dispatch, commit }, user) {
+    register({  commit }, user) {
         commit('registerRequest', user);
-
-        userService.register(user)
-            .then(
-                user => {
-
-                    if(user){
-                        router.push('/login');
-                        setTimeout(() => {
-                            dispatch('alert/success', 'Registration successful', { root: true });
-                        })
-                    } else {
-                        dispatch('alert/error', "ezrez", { root: true });
-                    }
-                },
-            );
+        let register = userService.register(user);
+        if(register) {
+            router.push('login');
+        }
     }
 };
 

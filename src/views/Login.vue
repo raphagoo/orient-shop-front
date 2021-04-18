@@ -5,22 +5,21 @@
             <div class="md-layout-item marocaineBg">
                 <img src="assets/caftan-rouge.jpg" />
             </div>
-
-            <div class="md-layout">
+            <div class="md-layout-item">
                 <div class="login-form">
                     <H1 class="titre">Vous connecter</H1>
                     <form @submit.prevent="submit" class="box">
                         <div class="field">
                             <label class="label" for="email">Veuillez reinseigner votre adresse mail : </label>
                             <div class="control">
-                            <input type="text"  placeholder="Email :" class="input" id="email" v-model="email" required>
-                        </div>
+                                <input type="text"  placeholder="Email :" class="input" id="email" v-model="email" required>
+                            </div>
                         </div>
                         <div class="field">
                             <label class="label" for="password" id="password">Veuillez reinseigner votre mot de passe</label>
                             <div class="control">
-                            <input type="password"  placeholder="Mot de passe :" class="input" v-model="password" required>
-                        </div>
+                                <input type="password"  placeholder="Mot de passe :" class="input" v-model="password" required>
+                            </div>
                         </div>
 
                         <div class="field">
@@ -100,6 +99,7 @@ export default {
             if (email && password) {
                 this.login({ email, password })
             }
+            this.$router.push('/shop');
         }
     }
 };
@@ -108,6 +108,13 @@ export default {
 
 <style lang="scss" scoped>
 
+.marocaineBg {
+    background: url("../assets/caftan-rouge.jpg") no-repeat center center ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 .buttonCo {
     background-color: #8b3b1c;
     width: 100%;
@@ -125,9 +132,12 @@ export default {
  }
  .input{
     margin-bottom: 50px;
-    padding: 15PX 15PX;
+     margin-top: 10px;
     width: 100%;
      border-radius: 10px;
+     height: 3rem;
+     border: 1.7px solid #ccc6c6;
+     padding-left: 24px;
 
  }
  .input::placeholder {
@@ -160,6 +170,9 @@ export default {
     font-size: x-small;
 }
 
+.container {
+    min-height: 900px !important;
+}
 
 
 

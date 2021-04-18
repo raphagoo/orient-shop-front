@@ -6,7 +6,7 @@ import Welcome from "./views/Welcome.vue";
 import Product from "./views/Product.vue";
 import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
-import PayementMenu from "./views/PaymentMenu.vue";
+import PaymentMenu from "./views/PaymentMenu.vue";
 import FavoriMenu from "./views/FavoriMenu.vue";
 import CommandeMenu from "./views/CommandeMenu.vue";
 import About from "./views/About.vue";
@@ -41,22 +41,22 @@ export const router = new Router({
         },
         {
             path: '/profil',
-            name: 'profil',
+            name: 'ProfilMenu',
             component: ProfilMenu
         },
         {
-            path: '/payment',
-            name: 'Payement',
-            component: PayementMenu
+            path: '/profil/payment',
+            name: 'Payment',
+            component: PaymentMenu
         },
         {
-            path: '/favori',
-            name: 'favori',
+            path: '/profil/favori',
+            name: 'FavoriMenu',
             component: FavoriMenu
         },
         {
-            path: '/commande',
-            name: 'commande',
+            path: '/profil/commande',
+            name: 'CommandeMenu',
             component: CommandeMenu
         },
 
