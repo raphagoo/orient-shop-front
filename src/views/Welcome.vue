@@ -1,12 +1,12 @@
 <template>
     <div class="container md-layout">
         <div class="md-layout-item marocaineBg">
-            <img src="src/assets/jeune-marocaine.jpg" />
+            <img src="assets/jeune-marocaine.jpg" />
         </div>
         <div class="md-layout-item blackBg">
             <div class="blackBgContainer"><div class="md-layout">
                 <div class="md-layout-item text-center logo">
-                    <img src="src/assets/Logo-blanc.svg" height="280px" width="280px" />
+                    <img src="assets/Logo-blanc.svg" height="280px" width="280px" />
                 </div>
             </div>
             <div class="md-layout">

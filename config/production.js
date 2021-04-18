@@ -1,7 +1,8 @@
 module.exports = {
+    mode: 'production',
     logLevel: 'warn',
-    baseHref: "/example/",
+    baseHref: "/",
     api: {
-        baseUrl: "https://httpbin.org",
+        baseUrl: "https://orientshop.io/back",
     },
 }

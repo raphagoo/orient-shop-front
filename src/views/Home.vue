@@ -31,7 +31,7 @@
             <slide class="story-carousel__slide">
                 <div class="md-layout">
                     <div class="md-layout-item">
-                        <img class="imgCarousel" src="src/assets/caftan-marocain.jpg"/>
+                        <img class="imgCarousel" src="assets/caftan-marocain.jpg"/>
                     </div>
                 </div>
                 <div class="md-layout">
@@ -48,7 +48,7 @@
             <slide class="story-carousel__slide">
                 <div class="md-layout">
                     <div class="md-layout-item">
-                        <img class="imgCarousel" src="src/assets/caftan-hollographique.jpg"/>
+                        <img class="imgCarousel" src="assets/caftan-hollographique.jpg"/>
                     </div>
                 </div>
                 <div class="md-layout">
@@ -65,7 +65,7 @@
             <slide class="story-carousel__slide">
                 <div class="md-layout">
                     <div class="md-layout-item">
-                        <img class="imgCarousel" src="src/assets/velour.jpg"/>
+                        <img class="imgCarousel" src="assets/velour.jpg"/>
                     </div>
                 </div>
                 <div class="md-layout">
@@ -82,7 +82,7 @@
             <slide class="story-carousel__slide">
                 <div class="md-layout">
                     <div class="md-layout-item">
-                        <img class="imgCarousel" src="src/assets/robe-blanc.jpg"/>
+                        <img class="imgCarousel" src="assets/robe-blanc.jpg"/>
                     </div>
                 </div>
                 <div class="md-layout">
@@ -99,7 +99,7 @@
             <slide class="story-carousel__slide">
                 <div class="md-layout">
                     <div class="md-layout-item">
-                        <img class="imgCarousel" src="src/assets/robe-blanc.jpg"/>
+                        <img class="imgCarousel" src="assets/robe-blanc.jpg"/>
                     </div>
                 </div>
                 <div class="md-layout">
@@ -138,11 +138,14 @@ export default {
         })
     },
     created() {
-        //this.getAllProducts()
+        this.getCart(1)
     },
     methods: {
         ...mapActions('product', {
             getAllProducts: 'getAllProducts'
+        }),
+        ...mapActions('cart', {
+            getCart: 'getCart'
         })
     }
 }
@@ -176,12 +179,12 @@ export default {
         }
     }
     .slide1{
-        background-image: url('../assets/velour.jpg');
+        background-image: url('../../assets/velour.jpg');
         background-position: center center;
         background-repeat:no-repeat;
     }
     .slide2{
-        background-image: url('../assets/caftan-hollographique.jpg');
+        background-image: url('../../assets/caftan-hollographique.jpg');
         background-position: center center;
         background-repeat:no-repeat;
     }

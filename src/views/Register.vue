@@ -44,14 +44,9 @@
                             <div class="field">
                                 <input type="submit" class="buttonCo" value="Inscription" />
                             </div>
-
-                            
-                            
-
-                        
                         </div>
                     </div>
-                </form>   
+                </form>
             </div>
         </div>
         <Footer/>
@@ -64,9 +59,6 @@ import Footer from "../includes/Footer.vue";
 export default {
     name: "Register",
     components: {Footer, Header},
-    
-    
-
 }
 
 </script>
@@ -74,14 +66,13 @@ export default {
 <style lang="scss" scoped>
 
 .background-register {
-    background-image: url("../assets/Caftan-or.jpg");
+    background-image: url("../../assets/Caftan-or.jpg");
     width: 1500px;
     height: 800px;
-
     margin-top:10px; /* -hauteur/2 */
 }
 .background-card {
-    background-color:white;    
+    background-color:white;
     position:absolute;
     //top:40%;
     left:50%;
@@ -116,12 +107,12 @@ export default {
     border-radius: 10px;
     border-color: gray;
 
-    
+
  }
 
 .input::placeholder {
     text-align: left;
-    
+
 }
 
 .buttonCo {
@@ -133,5 +124,5 @@ export default {
 }
 
 
- 
+
 </style>

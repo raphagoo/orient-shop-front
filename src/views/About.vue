@@ -3,7 +3,7 @@
         <Header/>
         <div class="md-layout">
             <div class="md-layout-item robeBg">
-                <img src="src/assets/caftan-rouge.jpg" />
+                <img src="assets/caftan-rouge.jpg" />
             </div>
             <div class="md-layout-item aboutText">
                 <div class="md-layout">

@@ -16,6 +16,7 @@ import HomeAdmin from "./views/admin/HomeAdmin.vue"
 import AddProduct from "./views/admin/AddProduct.vue";
 import ListProduct from "./views/admin/ListProduct.vue";
 import EditProduct from "./views/admin/EditProduct.vue";
+import Cart from "./views/Cart.vue";
 
 Vue.use(Router);
 
@@ -63,6 +64,11 @@ export const router = new Router({
             path: '/shop',
             name: 'home',
             component: Home
+        },
+        {
+            path: '/cart',
+            name: 'cart',
+            component: Cart
         },
         {
             path: '/product/:id',

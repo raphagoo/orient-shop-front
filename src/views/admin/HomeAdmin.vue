@@ -30,7 +30,7 @@
                     </div>
                     <div class="md-layout">
                         <div v-bind:key="product.id" v-for="product in lastNine" class="productDisplay md-layout-item md-size-33">
-                            <img src="src/assets/robe-bleu-claire.jpg" alt="photo product"/>
+                            <img src="assets/robe-bleu-claire.jpg" alt="photo product"/>
                             {{product.name}} {{product.price}}€
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                         </div>
                         <div class="md-layout">
                             <div v-bind:key="product.id" v-for="product in lastThree" class="md-layout-item md-size-33 productDisplay">
-                                <img src="src/assets/caftan-rouge.jpg" alt="photo product"/>
+                                <img src="assets/caftan-rouge.jpg" alt="photo product"/>
                                 <span class="text-center"> {{product.name}} - {{product.price}} €</span>
                             </div>
                         </div>

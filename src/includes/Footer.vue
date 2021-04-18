@@ -2,7 +2,7 @@
     <div class="md-content footerContainer">
         <div class="topFooter md-layout md-alignment-top-center md-gutter">
             <div class="md-layout-item md-size-25">
-                <img class="logoFooter" src="src/assets/Logo-blanc.svg" />
+                <img class="logoFooter" src="assets/Logo-blanc.svg" />
             </div>
             <div class="md-layout-item md-size-25">
                 <div class="md-layout">

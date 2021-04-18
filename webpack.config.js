@@ -4,6 +4,7 @@ const fs = require('fs')
 const chalk = require('chalk')
 const mri = require('mri')
 const ESLintPlugin = require('eslint-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -62,7 +63,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 use: 'file-loader?name=[name].[ext]',
             },
             // this will apply to both plain `.scss` files
@@ -105,6 +106,15 @@ module.exports = {
         new webpack.ProvidePlugin({
             process: 'process/browser',
         }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: __dirname + '/assets',
+                    to: __dirname + '/dist/assets',
+                    noErrorOnMissing: true
+                }
+            ]
+        }),
         new ESLintPlugin()
     ],
     devtool: 'inline-source-map',
@@ -121,5 +131,5 @@ module.exports = {
 };
 
 if (isProd) {
-    module.exports.output.filename = '[name].[hash].js'
+    module.exports.output.filename = '[name].[fullhash].js'
 }

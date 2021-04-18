@@ -7,24 +7,24 @@
                     <div class="md-layout-item">
                         <div class="md-layout md-alignment-center">
                             <div class="md-layout-item md-size-75">
-                                <img class="primaryPic" src="src/assets/caftan-marocain.jpg"/>
+                                <img class="primaryPic" src="assets/caftan-marocain.jpg"/>
                             </div>
                         </div>
                     </div>
                     <div class="md-layout-item">
                         <div class="md-layout">
                             <div class="md-layout-item md-size-50">
-                                <img class="secondaryPic" src="src/assets/caftan-marocain.jpg"/>
+                                <img class="secondaryPic" src="assets/caftan-marocain.jpg"/>
                             </div>
                         </div>
                         <div class="md-layout">
                             <div class="md-layout-item md-size-50">
-                                <img class="secondaryPic" src="src/assets/caftan-marocain.jpg"/>
+                                <img class="secondaryPic" src="assets/caftan-marocain.jpg"/>
                             </div>
                         </div>
                         <div class="md-layout">
                             <div class="md-layout-item md-size-50">
-                                <img class="secondaryPic" src="src/assets/caftan-marocain.jpg"/>
+                                <img class="secondaryPic" src="assets/caftan-marocain.jpg"/>
                             </div>
                         </div>
                     </div>
@@ -46,10 +46,10 @@
                     </div>
                 </div>
                 <div class="md-layout">
-                    <div class="md-layout-item">
+                    <div class="md-layout-item md-size-30">
                         <md-field>
                             <label>Number</label>
-                            <md-input v-model="number" min="1" max="5" type="number"></md-input>
+                            <md-input v-model="cart.quantity" min="1" max="5" type="number"></md-input>
                         </md-field>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="md-layout">
                     <div class="md-layout-item md-size-35">
-                        <md-button @click="addToCart(product.id)" class="md-raised md-primary"><md-icon style="color: white;">add</md-icon> Ajouter a mon panier</md-button>
+                        <md-button @click="addAndRefresh(cart)" class="md-raised md-primary"><md-icon style="color: white;">add</md-icon> Ajouter a mon panier</md-button>
                     </div>
                     <div class="md-layout-item md-size-35">
                         <md-button class="buttonAvis"><md-icon>speaker_notes</md-icon> Voir les avis</md-button>
@@ -89,7 +89,7 @@
                     <div class="md-layout-item">
                         <div class="md-layout">
                             <div class="md-layout-item">
-                                <img src="src/assets/robe-blanc.jpg" />
+                                <img src="assets/robe-blanc.jpg" />
                             </div>
                         </div>
                         <div class="md-layout">
@@ -106,7 +106,7 @@
                     <div class="md-layout-item">
                         <div class="md-layout">
                             <div class="md-layout-item">
-                                <img src="src/assets/robe-bleu-claire.jpg" />
+                                <img src="assets/robe-bleu-claire.jpg" />
                             </div>
                         </div>
                         <div class="md-layout">
@@ -123,7 +123,7 @@
                     <div class="md-layout-item">
                         <div class="md-layout">
                             <div class="md-layout-item">
-                                <img src="src/assets/robe-bleu-claire.jpg" />
+                                <img src="assets/robe-bleu-claire.jpg" />
                             </div>
                         </div>
                         <div class="md-layout">
@@ -140,7 +140,7 @@
                     <div class="md-layout-item">
                         <div class="md-layout">
                             <div class="md-layout-item">
-                                <img src="src/assets/robe-bleu-claire.jpg" />
+                                <img src="assets/robe-bleu-claire.jpg" />
                             </div>
                         </div>
                         <div class="md-layout">
@@ -178,7 +178,11 @@ export default {
     },
     data(){
         return{
-            number: 1
+            cart: {
+                quantity: 1,
+                user_id: 1,
+                product_id: parseInt(this.$route.params.id)
+            }
         }
     },
     methods: {
@@ -186,12 +190,19 @@ export default {
             getProductById: 'getProductById'
         }),
         ...mapActions('cart', {
-            addToCart: 'addToCart'
+            addToCart: 'addToCart',
+            getCart: 'getCart'
         }),
-        beforeMount() {
-            this.getProductById(this.$route.params.productId)
+        addAndRefresh(cart){
+            this.addToCart(cart)
+            .then(() => {
+                this.getCart(cart.user_id)
+            })
         }
-    }
+    },
+    beforeMount() {
+        this.getProductById(this.$route.params.id)
+    },
 }
 </script>
 

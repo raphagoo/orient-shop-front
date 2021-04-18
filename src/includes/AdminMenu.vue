@@ -3,13 +3,13 @@
     <md-app>
     <md-app-drawer md-permanent="full">
         <md-toolbar md-elevation="0">
-            <img class="logoMenu text-center" src="src/assets/Logo-blanc.svg" />
+            <img class="logoMenu text-center" src="assets/Logo-blanc.svg" />
         </md-toolbar>
 
         <md-list>
             <md-list-item>
                 <md-avatar>
-                    <img src="src/assets/caftan-rouge.jpg" alt="Avatar">
+                    <img src="assets/caftan-rouge.jpg" alt="Avatar">
                 </md-avatar>
                 <span class="md-list-item-text">User connecté</span>
             </md-list-item>

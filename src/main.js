@@ -15,7 +15,6 @@ import VueMaterialSlider from 'vue-material-slider';
 import VueSimpleAlert from "vue-simple-alert";
 
 Vue.use(VueSimpleAlert);
-
 Vue.use(VueMaterialSlider);
 Vue.use(VueSnap)
 
@@ -28,7 +27,7 @@ Vue.prototype.$log = logger
 
 logger.info('config:', config);
 
-let VERSION = "0.0.1"
+let VERSION = "0.1.0"
 
 logger.info('main.js VERSION', VERSION); // eslint-disable-line no-undef
 

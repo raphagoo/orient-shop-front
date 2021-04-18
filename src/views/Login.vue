@@ -3,7 +3,7 @@
         <Header/>
         <div class="container md-layout">
             <div class="md-layout-item marocaineBg">
-                <img src="src/assets/caftan-rouge.jpg" />
+                <img src="assets/caftan-rouge.jpg" />
             </div>
 
             <div class="md-layout">

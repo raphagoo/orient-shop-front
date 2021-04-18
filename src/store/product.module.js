@@ -39,7 +39,6 @@ const actions = {
     },
 
     addProduct({commit}, product){
-        console.log(product)
         return new Promise(function(resolve, reject){
             commit('addProductRequest');
             productService.addProduct(product)
@@ -70,7 +69,7 @@ const actions = {
                 commit('removeProductSuccess', id)
             })
             .catch(error => {
-                console.log(error)
+                consoleLogger.error(error)
             })
     }
 };
