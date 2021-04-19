@@ -96,7 +96,7 @@ export default {
 <style lang="scss" scoped>
 
 .background-register {
-    background: url("../assets/Caftan-or.jpg") no-repeat center center fixed;
+    background: url("../../assets/Caftan-or.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

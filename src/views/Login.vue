@@ -109,7 +109,7 @@ export default {
 <style lang="scss" scoped>
 
 .marocaineBg {
-    background: url("../assets/caftan-rouge.jpg") no-repeat center center ;
+    background: url("../../assets/caftan-rouge.jpg") no-repeat center center ;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
