@@ -15,7 +15,6 @@ const actions = {
                 if (response.data.jwt) {
                     commit('loginSuccess', response);
                     // Stocké les détails de l'utilsiateur dont son token dans le localStorage afin de laisser l'utilisateur connecté.
-                    router.push('/shop')
                 } else {
                     return false;
                 }
@@ -50,6 +49,7 @@ const mutations = {
         state.status = { loggingIn: true };
         localStorage.setItem('user', JSON.stringify(response.data.jwt));
         state.user = response.data.user;
+        router.push('/shop')
     },
 
     loginFailure(state) {

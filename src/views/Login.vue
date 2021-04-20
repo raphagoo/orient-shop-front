@@ -65,7 +65,7 @@
 <script>
 import Header from "../includes/Header.vue";
 import Footer from "../includes/Footer.vue";
-import { mapState, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
     name: "Login",
@@ -78,13 +78,6 @@ export default {
             boolean: false
         }
     },
-    computed: {
-        ...mapState('user', ['status'])
-    },
-    created () {
-        // reset login status
-        this.logout();
-    },
     methods: {
         ...mapActions('user', ['login', 'logout']),
         submit () {
@@ -93,7 +86,6 @@ export default {
             if (email && password) {
                 this.login({ email, password })
             }
-            this.$router.push('/shop');
         }
     }
 };

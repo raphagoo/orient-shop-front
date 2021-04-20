@@ -10,13 +10,13 @@
 
                 </div>
         <div class="md-toolbar-section-end">
-          <md-button v-if="!loggedIn" class="md-accent md-raised" >
-                <router-link to="/login">Connexion</router-link>
+          <md-button to="/login" v-if="!user" class="md-accent md-raised" >
+                Connexion
             </md-button>
-            <md-button v-if="!loggedIn" class="md-accent md-raised">
-                <router-link to="/register">Inscription</router-link>
+            <md-button to="/register" v-if="!user" class="md-accent md-raised">
+                Inscription
             </md-button>
-            <md-button class="md-accent md-raised" v-if="loggedIn" v-on:click="logoutUser">
+            <md-button class="md-accent md-raised" v-if="user" v-on:click="logoutUser">
                 Se déconnecter
             </md-button>
            <md-button class="md-layout-item md-size-10">
@@ -39,16 +39,17 @@
         <div  class="md-layout-item md-size-10">
             <router-link to="/shop"><img class="logoHeader" src="assets/Logo-dégradé.svg" /></router-link>
         </div>
-        <div class="md-layout-item md-size-25"></div>
+        <div class="md-layout-item md-size-25">
+        </div>
 
-        <div v-if="loggedIn" class="md-toolbar-section-end md-layout-item md-size-20">
+        <div v-if="user" class="md-toolbar-section-end md-layout-item md-size-20">
           <md-button class="md-icon-button">
-            <md-icon style="color:black"><router-link v-if="loggedIn" to="/profil/favori"><md-icon style="color:black">favorite_border</md-icon></router-link></md-icon>
+            <md-icon style="color:black"><router-link v-if="user" to="/profil/favori"><md-icon style="color:black">favorite_border</md-icon></router-link></md-icon>
           </md-button>
 
           <md-button class="md-icon-button" >
-            <router-link v-if="loggedIn" to="/profil"><md-icon style="color:black">account_circle</md-icon></router-link>
-              <router-link v-if="!loggedIn" to="/login"><md-icon style="color:black">account_circle</md-icon></router-link>
+            <router-link v-if="user" to="/profil"><md-icon style="color:black">account_circle</md-icon></router-link>
+              <router-link v-if="!user" to="/login"><md-icon style="color:black">account_circle</md-icon></router-link>
           </md-button>
 
             <md-badge :md-content="cartLength">
@@ -173,12 +174,12 @@ export default {
       }
   },
   computed: {
-      ...mapState('user', ['status']),
       loggedIn () {
           return this.$store.state.user.status.loggedIn;
       },
       ...mapState({
-          cart: state => state.cart.all
+          cart: state => state.cart.all,
+          user: state => state.user.user
       }),
       cartLength(){
           return this.$store.state.cart.all.length
