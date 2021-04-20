@@ -2,6 +2,7 @@
 import {userService} from '../services';
 
 import { router } from '../router';
+import consoleLogger from "logger";
 
 const userLocal = JSON.parse(localStorage.getItem('user'));
 const state = userLocal
@@ -21,7 +22,7 @@ const actions = {
 
             })
             .catch(error => {
-                console.log(error.response)
+                consoleLogger.error(error)
             })
     },
     logout({ commit }) {
@@ -33,11 +34,9 @@ const actions = {
         return new Promise(function(resolve, reject) {
             userService.register(user)
                 .then(response => {
-                    console.log(response)
                     resolve(response)
                 })
                 .catch(error => {
-                    console.log(error.response)
                     reject(error.response)
                 })
         })
@@ -61,7 +60,7 @@ const mutations = {
         state.user = null;
     },
     registerRequest(state, user) {
-        console.log(user);
+        consoleLogger.info(user)
         state.status = { registering: true };
     },
 };

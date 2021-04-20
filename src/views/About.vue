@@ -23,7 +23,7 @@
                 </div>
                 <div class="md-layout">
                     <div class="md-layout-item icons">
-                        <md-icon>instagram</md-icon> Caftanbeldi_azur
+                        <md-icon>photo_camera</md-icon> Caftanbeldi_azur
                         <md-icon>facebook</md-icon> Orient'Shop Safa
                     </div>
                 </div>

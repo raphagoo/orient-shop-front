@@ -47,7 +47,7 @@
                             <div class="md-layout-item login-span2">
                                 <div class="md-layout-item ">
                                     <md-icon style="color: #8b3b1c;">facebook</md-icon>
-                                    <md-icon style="color: #8b3b1c;">instagram</md-icon>
+                                    <md-icon style="color: #8b3b1c;">photo_camera</md-icon>
                                 </div>
                             </div>
                             <div class="md-layout-item login-span2">

@@ -87,7 +87,7 @@
                         <md-icon style="color: white;">facebook</md-icon>
                     </div>
                     <div class="md-layout-item md-size-10">
-                        <md-icon style="color: white;">instagram</md-icon>
+                        <md-icon style="color: white;">photo_camera</md-icon>
                     </div>
                 </div>
             </div>
