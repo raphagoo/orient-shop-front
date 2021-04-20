@@ -9,22 +9,15 @@
                 <div class="login-form">
                     <H1 class="titre">Vous connecter</H1>
                     <form @submit.prevent="submit" class="box">
-                        <div class="field">
-                            <label class="label" for="email">Veuillez reinseigner votre adresse mail : </label>
-                            <div class="control">
-                                <input type="text"  placeholder="Email :" class="input" id="email" v-model="email" required>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label" for="password" id="password">Veuillez reinseigner votre mot de passe</label>
-                            <div class="control">
-                                <input type="password"  placeholder="Mot de passe :" class="input" v-model="password" required>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <input type="submit" class="buttonCo" value="Connexion" />
-                        </div>
+                        <md-field>
+                            <label class="label" for="email">Email :</label>
+                            <md-input type="text" id="email" v-model="email" required/>
+                        </md-field>
+                        <md-field>
+                            <label class="label" for="password">Mot de passe :</label>
+                            <md-input type="password" id="password" v-model="password" required/>
+                        </md-field>
+                        <md-button type="submit" class="md-primary md-raised buttonCo" >Connexion</md-button>
                         <div class="md-layout md-gutter">
                             <div class="md-layout-item check-box">
                                 <md-checkbox v-model="boolean" >Se souvenir de moi</md-checkbox>
@@ -36,10 +29,10 @@
                         <hr>
                         <div class="md-layout md-gutter">
                             <div class="md-layout-item login-span">
-                                <span>Où</span>
+                                <span>Ou</span>
                             </div>
                             <div class="md-layout-item login-span">
-                                <span>Où</span> <br>
+                                <span>Ou</span> <br>
                             </div>
                         </div>
                         <div class="md-layout md-gutter">
@@ -58,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="md-layout-item login-span2">
-                                <router-link to="/register"><md-button class="buttonCo" value="Inscription">Inscription</md-button></router-link>
+                                <router-link to="/register"><md-button class="md-accent" value="Inscription">Inscription</md-button></router-link>
                             </div>
                         </div>
                     </form>
@@ -81,7 +74,8 @@ export default {
         return {
             email: '',
             password: '',
-            submitted: false
+            submitted: false,
+            boolean: false
         }
     },
     computed: {
@@ -116,11 +110,9 @@ export default {
     background-size: cover;
 }
 .buttonCo {
-    background-color: #8b3b1c;
     width: 100%;
     height: 45px;
     color: white  !important;
-     border-radius: 10px;
 }
 .md-layout {
     background-color: white;

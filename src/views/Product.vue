@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="md-layout">
-                    <div class="md-layout-item md-size-35">
+                    <div v-if="loggedIn" class="md-layout-item md-size-35">
                         <md-button @click="addAndRefresh(cart)" class="md-raised md-primary"><md-icon style="color: white;">add</md-icon> Ajouter a mon panier</md-button>
                     </div>
                     <div class="md-layout-item md-size-35">
@@ -175,12 +175,15 @@ export default {
         ...mapState({
             product: state => state.product.active
         }),
+        loggedIn () {
+            return this.$store.state.user.status.loggedIn;
+        },
     },
     data(){
         return{
             cart: {
                 quantity: 1,
-                user_id: 1,
+                user_id: null,
                 product_id: parseInt(this.$route.params.id)
             }
         }
@@ -194,6 +197,7 @@ export default {
             getCart: 'getCart'
         }),
         addAndRefresh(cart){
+            cart.user_id = this.$store.state.user.user.id
             this.addToCart(cart)
             .then(() => {
                 this.getCart(cart.user_id)

@@ -86,8 +86,8 @@ const mutations = {
     getAllProductsFailure(state, error) {
         state.all = { error };
     },
-    getProductByIdRequest(state){
-        state.all = { loading: true };
+    getProductByIdRequest(){
+        
     },
     getProductByIdSuccess(state, product){
         state.active = product;

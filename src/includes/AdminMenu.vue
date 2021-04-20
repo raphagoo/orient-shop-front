@@ -39,8 +39,8 @@
                 <span class="md-list-item-text">Gestion des commandes</span>
 
                 <md-list slot="md-expand">
-                    <md-list-item to="/admin/listProduct" class="md-inset">Inventaire</md-list-item>
-                    <md-list-item to="/admin/addProduct" class="md-inset">Paniers abandonnés</md-list-item>
+                    <md-list-item to="" class="md-inset">Inventaire</md-list-item>
+                    <md-list-item to="" class="md-inset">Paniers abandonnés</md-list-item>
                 </md-list>
             </md-list-item>
 

@@ -9,34 +9,47 @@ const state = userLocal
     : { status: {}, user: null };
 
 const actions = {
-    login({ dispatch, commit }, { email, password }) {
-        let user = userService.login(email, password);
+    login({ commit }, { email, password }) {
+            userService.login(email, password)
+            .then(response => {
+                if (response.data.jwt) {
+                    commit('loginSuccess', response);
+                    // Stocké les détails de l'utilsiateur dont son token dans le localStorage afin de laisser l'utilisateur connecté.
+                    router.push('/shop')
+                } else {
+                    return false;
+                }
 
-        if(user) {
-            commit('loginSuccess', user);
-            router.push('/shop')
-        } else {
-            commit('loginFailure', user);
-            dispatch('alert/error', "error", { root: true });
-        }
+            })
+            .catch(error => {
+                console.log(error.response)
+            })
     },
     logout({ commit }) {
         userService.logout();
         commit('logout');
     },
-    register({  commit }, user) {
+    register({ commit }, user) {
         commit('registerRequest', user);
-        let register = userService.register(user);
-        if(register) {
-            router.push('login');
-        }
+        return new Promise(function(resolve, reject) {
+            userService.register(user)
+                .then(response => {
+                    console.log(response)
+                    resolve(response)
+                })
+                .catch(error => {
+                    console.log(error.response)
+                    reject(error.response)
+                })
+        })
     }
 };
 
 const mutations = {
-    loginSuccess(state, user) {
+    loginSuccess(state, response) {
         state.status = { loggingIn: true };
-        state.user = user;
+        localStorage.setItem('user', JSON.stringify(response.data.jwt));
+        state.user = response.data.user;
     },
 
     loginFailure(state) {

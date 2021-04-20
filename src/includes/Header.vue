@@ -10,6 +10,15 @@
 
                 </div>
         <div class="md-toolbar-section-end">
+          <md-button v-if="!loggedIn" class="md-accent md-raised" >
+                <router-link to="/login">Connexion</router-link>
+            </md-button>
+            <md-button v-if="!loggedIn" class="md-accent md-raised">
+                <router-link to="/register">Inscription</router-link>
+            </md-button>
+            <md-button class="md-accent md-raised" v-if="loggedIn" v-on:click="logoutUser">
+                Se déconnecter
+            </md-button>
            <md-button class="md-layout-item md-size-10">
                 <md-icon style="color: white;">facebook</md-icon>
             </md-button>
@@ -21,7 +30,7 @@
 
     <md-toolbar class="md-large md-primary">
       <div class="md-toolbar-row">
-        <div class="md-toolbar-section-start">
+        <div class="md-toolbar-section-start md-layout-item md-size-45">
           <md-button  class="md-icon-button">
             <md-icon style="color:black">search</md-icon>
           </md-button>
@@ -30,8 +39,9 @@
         <div  class="md-layout-item md-size-10">
             <router-link to="/shop"><img class="logoHeader" src="assets/Logo-dégradé.svg" /></router-link>
         </div>
+        <div class="md-layout-item md-size-25"></div>
 
-        <div class="md-toolbar-section-end">
+        <div v-if="loggedIn" class="md-toolbar-section-end md-layout-item md-size-20">
           <md-button class="md-icon-button">
             <md-icon style="color:black"><router-link v-if="loggedIn" to="/profil/favori"><md-icon style="color:black">favorite_border</md-icon></router-link></md-icon>
           </md-button>
@@ -165,7 +175,6 @@ export default {
   computed: {
       ...mapState('user', ['status']),
       loggedIn () {
-          console.log(status);
           return this.$store.state.user.status.loggedIn;
       },
       ...mapState({

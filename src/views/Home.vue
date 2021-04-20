@@ -135,10 +135,12 @@ export default {
     computed: {
         ...mapState({
             products: state => state.products
-        })
+        }),
     },
     created() {
-        this.getCart(1)
+        if(this.$store.state.user.user) {
+            this.getCart(this.$store.state.user.user.id)
+        }
     },
     methods: {
         ...mapActions('product', {

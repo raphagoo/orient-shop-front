@@ -115,9 +115,8 @@ export default {
             removeFromCart: 'removeFromCart'
         }),
         remove(product){
-            console.log(product)
             let cartInfos = {
-                user_id: 1,
+                user_id: this.$store.state.user.user.id,
                 product_id: product.id
             }
             this.removeFromCart(cartInfos)
