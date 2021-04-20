@@ -40,6 +40,9 @@ const mutations = {
 
     },
     getCartSuccess(state, data){
+        data.forEach(product => {
+            product.picture = "assets/" + product.picture
+        })
         state.all = data
     },
     removeFromCartSuccess(state, id){

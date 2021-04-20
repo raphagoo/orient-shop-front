@@ -210,7 +210,8 @@ export default {
     padding: 2rem;
 }
 .form-card{
-    margin-top: 15%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .label{

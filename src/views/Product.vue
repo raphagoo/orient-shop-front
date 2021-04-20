@@ -7,24 +7,24 @@
                     <div class="md-layout-item">
                         <div class="md-layout md-alignment-center">
                             <div class="md-layout-item md-size-75">
-                                <img class="primaryPic" src="assets/caftan-marocain.jpg"/>
+                                <img class="primaryPic" :src="product.picture"/>
                             </div>
                         </div>
                     </div>
                     <div class="md-layout-item">
                         <div class="md-layout">
                             <div class="md-layout-item md-size-50">
-                                <img class="secondaryPic" src="assets/caftan-marocain.jpg"/>
+                                <img class="secondaryPic" :src="product.picture"/>
                             </div>
                         </div>
                         <div class="md-layout">
                             <div class="md-layout-item md-size-50">
-                                <img class="secondaryPic" src="assets/caftan-marocain.jpg"/>
+                                <img class="secondaryPic" :src="product.picture"/>
                             </div>
                         </div>
                         <div class="md-layout">
                             <div class="md-layout-item md-size-50">
-                                <img class="secondaryPic" src="assets/caftan-marocain.jpg"/>
+                                <img class="secondaryPic" :src="product.picture"/>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="md-layout">
-                    <div v-if="loggedIn" class="md-layout-item md-size-35">
+                    <div v-if="user" class="md-layout-item md-size-35">
                         <md-button @click="addAndRefresh(cart)" class="md-raised md-primary"><md-icon style="color: white;">add</md-icon> Ajouter a mon panier</md-button>
                     </div>
                     <div class="md-layout-item md-size-35">
@@ -173,7 +173,8 @@ export default {
     },
     computed: {
         ...mapState({
-            product: state => state.product.active
+            product: state => state.product.active,
+            user: state => state.user.user
         }),
         loggedIn () {
             return this.$store.state.user.status.loggedIn;
@@ -197,6 +198,9 @@ export default {
             getCart: 'getCart'
         }),
         addAndRefresh(cart){
+            if (typeof cart.quantity === 'string') {
+                cart.quantity = parseInt(cart.quantity)
+            }
             cart.user_id = this.$store.state.user.user.id
             this.addToCart(cart)
             .then(() => {

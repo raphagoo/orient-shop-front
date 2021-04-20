@@ -74,7 +74,7 @@
                     <div v-bind:key="product.id" @click="goToProduct(product.id)" v-for="product in productsFiltered" class="md-layout-item md-size-25">
                         <div class="md-layout">
                             <div class="md-layout-item text-center">
-                                <img class="productPic" alt="product picture" src="assets/caftan-marocain.jpg"/>
+                                <img class="productPic" alt="product picture" :src="product.picture"/>
                             </div>
                         </div>
                         <div class="md-layout">

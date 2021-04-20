@@ -9,7 +9,7 @@
                             <div class="md-layout-item productContainer">
                                 <div class="md-layout md-alignment-center-center">
                                     <div class="md-layout-item md-size-20">
-                                        <img alt="product image" src="assets/caftan-rouge.jpg">
+                                        <img alt="product image" :src="product.picture">
                                     </div>
                                     <div class="md-layout-item md-size-40">
                                         <div class="md-layout">

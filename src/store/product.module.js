@@ -79,6 +79,9 @@ const mutations = {
         state.all = { loading: true };
     },
     getAllProductsSuccess(state, response){
+        response.data.forEach(product => {
+            product.picture = "assets/" + product.picture
+        })
         state.all =  response.data
         state.colors = [...new Set(response.data.map(item => item.color))];
         state.sizes = [...new Set(response.data.map(item => item.size))];
@@ -87,9 +90,10 @@ const mutations = {
         state.all = { error };
     },
     getProductByIdRequest(){
-        
+
     },
     getProductByIdSuccess(state, product){
+        product.picture = "assets/" + product.picture
         state.active = product;
     },
     getProductByIdFailure(state, error) {

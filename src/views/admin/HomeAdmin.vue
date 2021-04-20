@@ -30,7 +30,7 @@
                     </div>
                     <div class="md-layout">
                         <div v-bind:key="product.id" v-for="product in lastNine" class="productDisplay md-layout-item md-size-33">
-                            <img src="assets/robe-bleu-claire.jpg" alt="photo product"/>
+                            <img :src="product.picture" alt="photo product"/>
                             {{product.name}} {{product.price}}€
                         </div>
                     </div>
@@ -67,7 +67,7 @@
                         </div>
                         <div class="md-layout">
                             <div v-bind:key="product.id" v-for="product in lastThree" class="md-layout-item md-size-33 productDisplay">
-                                <img src="assets/caftan-rouge.jpg" alt="photo product"/>
+                                <img :src="product.picture" alt="photo product"/>
                                 <span class="text-center"> {{product.name}} - {{product.price}} €</span>
                             </div>
                         </div>
@@ -117,8 +117,12 @@ export default {
             padding: 20px;
             border-radius: 20px;
             img{
+                width: 125px;
+                height: 200px;
                 max-width: 125px;
                 max-height: 200px;
+                object-fit: cover;
+                object-position: center center;
             }
             .md-title{
                 padding-bottom: 3%;
